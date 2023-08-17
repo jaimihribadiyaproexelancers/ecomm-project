@@ -7,3 +7,31 @@ body {
   margin-left: 5%;
   margin-right: 5%;
 }
+
+.signup{
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 80px;
+  color: blueviolet;
+}
+.common-form {
+  text-align: center;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  width: 300px;
+}
+
+.form-input {
+  height: 35px;
+  border: 1px solid blueviolet;
+  cursor: pointer;
+  margin-bottom: 20px;
+  padding-left: 10;
+}
+
+.form-button {
+  height: 35px;
+  border: 1px solid blueviolet;
+  cursor: pointer;
+}
