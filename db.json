@@ -17,6 +17,12 @@
       "email": "cdef@gmail.com",
       "password": "cdef@123",
       "id": 3
+    },
+    {
+      "name": "niyami",
+      "email": "wawele4141@tipent.com",
+      "password": "niyami",
+      "id": 4
     }
   ]
 }
