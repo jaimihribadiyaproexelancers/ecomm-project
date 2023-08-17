@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SellerService } from '../services/seller.service';
 
 @Component({
   selector: 'app-seller-auth',
@@ -6,7 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./seller-auth.component.css'],
 })
 export class SellerAuthComponent {
-  signUp(data: object): void {
-    console.warn(data);
+  constructor(private seller: SellerService) {}
+  ngOnInit(): void {}
+  signUp(data: object): void {    
+    this.seller.userSignUp(data).subscribe((result) => {
+      console.warn(result);
+    });
   }
 }
