@@ -12,10 +12,11 @@ export class SellerAuthComponent {
   constructor(private seller: SellerService, private router: Router) {}
   ngOnInit(): void {}
   signUp(data: SignUp): void {
-    this.seller.userSignUp(data).subscribe((result) => {
+    this.seller.userSignUp(data);
+    /* this.seller.userSignUp(data).subscribe((result) => {
       if (result) {
         this.router.navigate(['seller-home']);
       }
-    });
+    }); */
   }
 }
