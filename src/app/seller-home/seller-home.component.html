@@ -1,24 +1,29 @@
 <div class="product-list">
     <h1>Product List</h1>
+    <p class="message">{{productMessage}}</p>
     <table>
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Image</th>
                 <th>Name</th>
                 <th>Price</th>
                 <th>Color</th>
                 <th>Category</th>
                 <th>Description</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let pl of productList">
+                <td>{{pl.id}}</td>
                 <td><img src="{{pl.image}}"></td>
                 <td>{{ pl.name}}</td>
                 <td>{{ pl.price}}</td>
                 <td>{{ pl.color}}</td>
                 <td>{{ pl.category}}</td>
                 <td>{{ pl.description}}</td>
+                <td><button (click)="deleteProduct(pl.id)">Delete</button></td>
             </tr>
         </tbody>
     </table>
