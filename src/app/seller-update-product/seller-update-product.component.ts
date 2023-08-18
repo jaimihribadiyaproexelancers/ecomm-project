@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { Product } from '../data-type';
 
@@ -11,7 +11,11 @@ import { Product } from '../data-type';
 export class SellerUpdateProductComponent {
   updateProductMessage: undefined | string;
   productData: undefined | Product;
-  constructor(private route: ActivatedRoute, private product: ProductService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private product: ProductService,
+    private router: Router
+  ) {}
   ngOnInit(): void {
     let productId = this.route.snapshot.paramMap.get('id');
     productId &&
@@ -28,6 +32,9 @@ export class SellerUpdateProductComponent {
         this.updateProductMessage = 'Product has updated';
       }
     });
-    setTimeout(() => (this.updateProductMessage = undefined), 3000);
+    setTimeout(() => {
+      this.updateProductMessage = undefined;
+      this.router.navigate(['seller-home']);
+    }, 3000);
   }
 }
