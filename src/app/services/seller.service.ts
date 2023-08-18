@@ -16,9 +16,14 @@ export class SellerService {
       })
       .subscribe((result) => {
         this.isSellerLoggedIn.next(true);
+        localStorage.setItem('seller', JSON.stringify(result.body));
         this.router.navigate(['seller-home']);
-        console.warn('result', result);
       });
-    return false;
+  }
+  reloadSeller() {
+    if (localStorage.getItem('seller')) {
+      this.isSellerLoggedIn.next(true);
+      this.router.navigate(['seller-home']);
+    }
   }
 }
