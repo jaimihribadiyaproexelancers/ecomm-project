@@ -9,8 +9,9 @@ import { SignUp, Login } from '../data-type';
   styleUrls: ['./seller-auth.component.css'],
 })
 export class SellerAuthComponent {
-  constructor(private seller: SellerService, private router: Router) {}
   showLogin = false;
+  authError: string = '';
+  constructor(private seller: SellerService, private router: Router) {}
   ngOnInit(): void {
     this.seller.reloadSeller();
   }
@@ -23,7 +24,14 @@ export class SellerAuthComponent {
     }); */
   }
   login(data: Login): void {
-    console.warn(data);
+    this.authError = '';
+    this.seller.userLogin(data);
+    this.seller.isLoginError.subscribe((isError) => {
+      if (isError) {
+        this.authError = `Email or Password is not current`;
+      } else {
+      }
+    });
   }
   openLogin() {
     this.showLogin = true;
