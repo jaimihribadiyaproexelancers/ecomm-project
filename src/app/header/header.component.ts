@@ -15,11 +15,11 @@ export class HeaderComponent {
       if (val.url) {
         console.warn(val.url);
         if (localStorage.getItem('seller') && val.url.includes('seller')) {
-          this.menuType = 'seller';
           if (localStorage.getItem('seller')) {
             let sellerStore = localStorage.getItem('seller');
             let sellerData = sellerStore && JSON.parse(sellerStore)[0];
             this.sellerName = sellerData.email;
+            this.menuType = 'seller';
           }
         } else {
           this.menuType = 'default';
