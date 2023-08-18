@@ -19,5 +19,15 @@ export class SellerUpdateProductComponent {
         this.productData = data;
       });
   }
-  submit(data: any) {}
+  submit(data: Product) {
+    if (this.productData) {
+      data.id = this.productData.id;
+    }
+    this.product.updateProduct(data).subscribe((result) => {
+      if (result) {
+        this.updateProductMessage = 'Product has updated';
+      }
+    });
+    setTimeout(() => (this.updateProductMessage = undefined), 3000);
+  }
 }
