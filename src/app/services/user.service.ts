@@ -8,7 +8,7 @@ import { Login, SignUp } from '../data-type';
 })
 export class UserService {
   invalidUserAuth = new EventEmitter<boolean>(false);
-  constructor(private http: HttpClient, private router: Router) {}  
+  constructor(private http: HttpClient, private router: Router) {}
   userSignUp(user: SignUp) {
     this.http
       .post(`http://localhost:3000/users`, user, {

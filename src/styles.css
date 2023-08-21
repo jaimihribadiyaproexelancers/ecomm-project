@@ -71,3 +71,14 @@ p.message {
   color: blueviolet;
   cursor: pointer;
 }
+.invalid-input {
+  color: red;
+  font-size: 12px;
+  margin-top: -20px;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+.max-width {
+  width: 100%;
+}

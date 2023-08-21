@@ -20,9 +20,8 @@ export class UserAuthComponent {
   login(data: Login) {
     this.user.userLogin(data);
     this.user.invalidUserAuth.subscribe((result) => {
-      console.warn(result);
       if (result) {
-        this.authError = 'User not found';
+        this.authError = 'Please enter valid user email & password';
       } else {
       }
     });
