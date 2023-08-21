@@ -37,4 +37,15 @@ export class ProductService {
       `http://localhost:3000/products?_limit=5&q=${query}`
     );
   }
+  localAddToCart(data: Product) {
+    let cartData = [];
+    let localCart = localStorage.getItem('localCart');
+    if (!localCart) {
+      localStorage.setItem('localCart', JSON.stringify([data]));
+    } else {
+      cartData = JSON.parse(localCart);
+      cartData.plus(data);
+      localStorage.setItem('localCart', JSON.stringify(cartData));
+    }
+  }
 }

@@ -30,4 +30,13 @@ export class ProductDetailsComponent {
       this.productQuantity -= 1;
     }
   }
+  AddToCart() {
+    if (this.productData) {
+      this.productData.quantity = this.productQuantity;
+      if (!localStorage.getItem('user')) {
+        console.warn(this.productData);
+        this.product.localAddToCart(this.productData);
+      }
+    }
+  }
 }
