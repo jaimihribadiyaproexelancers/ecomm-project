@@ -10,6 +10,7 @@ import { Product } from '../data-type';
 })
 export class ProductDetailsComponent {
   productData: undefined | Product;
+  productQuantity: number = 1;
   constructor(
     private activeRoute: ActivatedRoute,
     private product: ProductService
@@ -20,5 +21,13 @@ export class ProductDetailsComponent {
       this.product.getProduct(productId).subscribe((result) => {
         this.productData = result;
       });
+  }
+  handleQuantity(val: string) {
+    if (val === 'plus') {
+      this.productQuantity += 1;
+    }
+    if (val === 'min' && this.productQuantity > 1) {
+      this.productQuantity -= 1;
+    }
   }
 }
