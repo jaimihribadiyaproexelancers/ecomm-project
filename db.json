@@ -1,34 +1,62 @@
 {
   "seller": [
     {
-      "name": "Abcd Abcd",
-      "email": "abcd@gmail.com",
-      "password": "abcd@123",
+      "name": "peter",
+      "password": "abc@123",
+      "email": "peter@test.com",
+      "id": 1
+    }
+  ],
+  "products": [
+    {
+      "name": "Samsung m 40 a ",
+      "price": "550",
+      "category": "mobile",
+      "color": "white",
+      "description": "this is a Samsung product",
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSOO1JDPUNwcPiqzHYhaL_zpJA0Ymlr6mD9sSgTPad_JYdrk-o",
       "id": 1
     },
     {
-      "name": "Bcde Bcde",
-      "email": "bcde@gmail.com",
-      "password": "bcde@123",
+      "name": "I phone 14",
+      "price": "100000",
+      "category": "mobile",
+      "color": "black",
+      "description": "An Apple Product",
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSOO1JDPUNwcPiqzHYhaL_zpJA0Ymlr6mD9sSgTPad_JYdrk-o",
       "id": 2
-    },
+    }
+  ],
+  "users": [
     {
-      "name": "Cdef Cdef",
-      "email": "cdef@gmail.com",
-      "password": "cdef@123",
-      "id": 3
-    },
+      "name": "hyden",
+      "email": "hyden@user.com",
+      "password": "abc123",
+      "id": 1
+    }
+  ],
+  "cart": [
     {
-      "name": "niyami",
-      "email": "wawele4141@tipent.com",
-      "password": "niyami",
-      "id": 4
-    },
+      "name": "Samsung m 40 a ",
+      "price": "550",
+      "category": "mobile",
+      "color": "white",
+      "description": "this is a Samsung product",
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSOO1JDPUNwcPiqzHYhaL_zpJA0Ymlr6mD9sSgTPad_JYdrk-o",
+      "quantity": 1,
+      "productId": 1,
+      "userId": 1,
+      "id": 1
+    }
+  ],
+  "orders": [
     {
-      "name": "niyamiasd",
-      "email": "wawel141@tipent.com",
-      "password": "asdf",
-      "id": 5
+      "email": "hyden@user.com",
+      "address": "noida sector x",
+      "contact": "9999",
+      "totalPrice": 104750,
+      "userId": 1,
+      "id": 1
     }
   ]
 }
