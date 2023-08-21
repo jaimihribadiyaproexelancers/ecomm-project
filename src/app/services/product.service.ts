@@ -29,4 +29,7 @@ export class ProductService {
   popularProducts() {
     return this.http.get<Product[]>(`http://localhost:3000/products?_limit=2`);
   }
+  trendyProducts() {
+    return this.http.get<Product[]>(`http://localhost:3000/products?_limit=6`);
+  }
 }

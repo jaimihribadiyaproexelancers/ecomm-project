@@ -22,8 +22,26 @@
 </ngb-carousel>
 <div class="product-list-wrapper">
     <h1>Trendy Product</h1>
-    <div class="row">
-        <div class="col-sm-3">
+    <div class="row" *ngIf="trendyProducts">
+        <div class="col-sm-3" *ngFor="let tps of trendyProducts">
+            <div class="product-item">
+                <img src="{{tps.image}}">
+                <div class="product-details">
+                    <h6 class="product-head">{{tps.name}}</h6>
+                    <div class="product-price">
+                        <h6>Price: {{tps.price}}</h6>
+                    </div>
+                    <div class="product-color">
+                        <h6>Color: {{tps.color}}</h6>
+                    </div>
+                </div>
+                <div class="product-footer">
+                    <a href="#">View Details</a>
+                    <a href="#">Add to card</a>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-sm-3">
             <div class="product-item">
                 <img src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg">
                 <div class="product-details">
@@ -40,78 +58,7 @@
                     <a href="#">Add to card</a>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="product-item">
-                <img src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg">
-                <div class="product-details">
-                    <h6 class="product-head">Mens Casual Slim Fit</h6>
-                    <div class="product-price">
-                        <h6>Price: 10000</h6>
-                    </div>
-                    <div class="product-color">
-                        <h6>Color: red</h6>
-                    </div>
-                </div>
-                <div class="product-footer">
-                    <a href="#">View Details</a>
-                    <a href="#">Add to card</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="product-item">
-                <img src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg">
-                <div class="product-details">
-                    <h6 class="product-head">Mens Casual Slim Fit</h6>
-                    <div class="product-price">
-                        <h6>Price: 10000</h6>
-                    </div>
-                    <div class="product-color">
-                        <h6>Color: red</h6>
-                    </div>
-                </div>
-                <div class="product-footer">
-                    <a href="#">View Details</a>
-                    <a href="#">Add to card</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="product-item">
-                <img src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg">
-                <div class="product-details">
-                    <h6 class="product-head">Mens Casual Slim Fit</h6>
-                    <div class="product-price">
-                        <h6>Price: 10000</h6>
-                    </div>
-                    <div class="product-color">
-                        <h6>Color: red</h6>
-                    </div>
-                </div>
-                <div class="product-footer">
-                    <a href="#">View Details</a>
-                    <a href="#">Add to card</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="product-item">
-                <img src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg">
-                <div class="product-details">
-                    <h6 class="product-head">Mens Casual Slim Fit</h6>
-                    <div class="product-price">
-                        <h6>Price: 10000</h6>
-                    </div>
-                    <div class="product-color">
-                        <h6>Color: red</h6>
-                    </div>
-                </div>
-                <div class="product-footer">
-                    <a href="#">View Details</a>
-                    <a href="#">Add to card</a>
-                </div>
-            </div>
-        </div>
+        </div> -->
+
     </div>
 </div>
