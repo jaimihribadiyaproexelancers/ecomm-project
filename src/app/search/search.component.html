@@ -1,11 +1,11 @@
-<div class="row search-item">
+<div class="row search-item" *ngFor="let sps of searchResult">
     <div class="col-sm-3">
-        <img src="" alt="">
+        <img src="{{sps.image}}" alt="{{sps.name}}">
     </div>
     <div class="col-sm-8 details">
-        <h6>Product Name</h6>
-        <p><b>Price:1000</b></p>
-        <p><span>Color:red</span><span>Category Mobile</span></p>
-        <p>Aasdasdasd</p>
+        <h6>{{sps.name}}</h6>
+        <p><b>Price: {{sps.price}}</b></p>
+        <p><span>Color: {{sps.color}}</span><span>{{sps.category}}</span></p>
+        <p>{{sps.description}}</p>
     </div>
 </div>
