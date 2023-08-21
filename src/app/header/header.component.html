@@ -1,8 +1,8 @@
 <nav class="nav">
   <h1><a routerLink="/">E-COMM</a></h1>
   <div *ngIf="menuType==='default'" class="nav-search">
-    <input type="text" (keyup)="searchProduct($event)" (blur)="hideSearch()" placeholder="Search..." />
-    <button>Search</button>
+    <input type="text" #searchInput (keyup)="searchProduct($event)" (blur)="hideSearch()" placeholder="Search..." />
+    <button (click)="searchSubmit(searchInput.value)">Search</button>
     <ul class="suggested-result" *ngIf="searchResult">
       <li *ngFor="let sps of searchResult">
         <a href="#">{{sps.name}}</a>

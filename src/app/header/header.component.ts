@@ -16,7 +16,6 @@ export class HeaderComponent {
   ngOnInit(): void {
     this.route.events.subscribe((val: any) => {
       if (val.url) {
-        console.warn(val.url);
         if (localStorage.getItem('seller') && val.url.includes('seller')) {
           if (localStorage.getItem('seller')) {
             let sellerStore = localStorage.getItem('seller');
@@ -44,5 +43,8 @@ export class HeaderComponent {
   }
   hideSearch() {
     this.searchResult = undefined;
+  }
+  searchSubmit(val: string) {
+    this.route.navigate([`search/${val}`]);
   }
 }
