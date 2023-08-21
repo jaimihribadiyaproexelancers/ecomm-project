@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../data-type';
 
@@ -7,6 +7,7 @@ import { Product } from '../data-type';
   providedIn: 'root',
 })
 export class ProductService {
+  cartData = new EventEmitter<Product[] | []>();
   constructor(private http: HttpClient, private router: Router) {}
   addProduct(data: Product) {
     return this.http.post(`http://localhost:3000/products`, data);
@@ -44,8 +45,9 @@ export class ProductService {
       localStorage.setItem('localCart', JSON.stringify([data]));
     } else {
       cartData = JSON.parse(localCart);
-      cartData.plus(data);
+      cartData.push(data);
       localStorage.setItem('localCart', JSON.stringify(cartData));
     }
+    this.cartData.emit(cartData);
   }
 }
