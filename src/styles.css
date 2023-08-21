@@ -43,3 +43,14 @@ p.error {
 p.message {
   color: green;
 }
+
+.carousel-caption {
+  background-color: #000000;
+  border-radius: 5px;
+  opacity: 0.5;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #000000;
+  border: 5px;
+}
