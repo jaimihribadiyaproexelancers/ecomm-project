@@ -11,6 +11,7 @@ import { Product } from '../data-type';
 export class ProductDetailsComponent {
   productData: undefined | Product;
   productQuantity: number = 1;
+  removeCart = false;
   constructor(
     private activeRoute: ActivatedRoute,
     private product: ProductService
@@ -20,6 +21,16 @@ export class ProductDetailsComponent {
     productId &&
       this.product.getProduct(productId).subscribe((result) => {
         this.productData = result;
+        let cartData = localStorage.getItem('localCart');
+        if (productId && cartData) {
+          let items = JSON.parse(cartData);
+          items = items.filter((item: Product) => productId == item.id);
+          if (items.length) {
+            this.removeCart = true;
+          } else {
+            this.removeCart = false;
+          }
+        }
       });
   }
   handleQuantity(val: string) {
@@ -30,12 +41,17 @@ export class ProductDetailsComponent {
       this.productQuantity -= 1;
     }
   }
-  AddToCart() {    
+  addToCart() {
     if (this.productData) {
       this.productData.quantity = this.productQuantity;
       if (!localStorage.getItem('user')) {
         this.product.localAddToCart(this.productData);
+        this.removeCart = true;
       }
     }
+  }
+  removeToCart(productId: string) {
+    this.product.removeItemFromCart(productId);
+    this.removeCart = false;
   }
 }
