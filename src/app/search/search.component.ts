@@ -14,7 +14,7 @@ export class SearchComponent {
     private activeRoute: ActivatedRoute,
     private product: ProductService
   ) {}
-  ngOnInit(): void {
+  ngOnInit(): void {    
     let query = this.activeRoute.snapshot.paramMap.get('query');
     query &&
       this.product.searchProducts(query).subscribe((result) => {
