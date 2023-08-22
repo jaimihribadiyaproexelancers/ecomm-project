@@ -58,7 +58,8 @@ export class ProductDetailsComponent {
         delete cartData.id;
         this.product.addToCart(cartData).subscribe((result) => {
           if (result) {
-            alert('Product added in cart');
+            this.product.getCartList(userId);
+            this.removeCart = true;
           }
         });
       }
