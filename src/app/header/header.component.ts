@@ -50,6 +50,7 @@ export class HeaderComponent {
     if (roll === 'user') {
       localStorage.removeItem('user');
       this.route.navigate(['/user-auth']);
+      this.product.cartData.emit([]);
     } else if ('seller') {
       localStorage.removeItem('seller');
       this.route.navigate(['/']);
