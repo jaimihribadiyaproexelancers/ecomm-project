@@ -49,7 +49,7 @@ export class CheckoutComponent {
           this.orderMsg = 'Order has been placed';
           // setTimeout(() => {
           //   this.orderMsg = undefined;
-          //   this.router.navigate(['/my-orders']);
+          this.router.navigate(['/my-orders']);
           // }, 4000);
         }
       });
