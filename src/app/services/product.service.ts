@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Cart, Product } from '../data-type';
+import { Cart, Order, Product } from '../data-type';
 
 @Injectable({
   providedIn: 'root',
@@ -84,4 +84,14 @@ export class ProductService {
       `http://localhost:3000/cart?userId=${userData.id}`
     );
   }
+  orderNow(data: Order) {
+    return this.http.post('http://localhost:3000/orders', data);
+  }
+  // deleteCartItems(cartId: string) {
+  //   return this.http
+  //     .delete(`http://localhost:3000/cart/${cartId}`)
+  //     .subscribe((result) => {
+  //       this.cartData.emit([]);
+  //     });
+  // }
 }
