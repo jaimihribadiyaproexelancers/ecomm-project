@@ -24,8 +24,8 @@ export interface Cart {
   color: string;
   image: string;
   description: string;
-  id: number | undefined;
+  id: string | undefined;
   quantity: undefined | number;
-  productId: number;
+  productId: string;
   userId: number;
 }
