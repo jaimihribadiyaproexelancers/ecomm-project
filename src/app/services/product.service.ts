@@ -90,14 +90,18 @@ export class ProductService {
   orderList() {
     let userStore = localStorage.getItem('user');
     let userData = userStore && JSON.parse(userStore);
-    return this.http.get<Order[]>('http://localhost:3000/orders?userId=' + userData.id);
+    return this.http.get<Order[]>(
+      'http://localhost:3000/orders?userId=' + userData.id
+    );
   }
 
-  // deleteCartItems(cartId: number) {
-  //   return this.http.delete('http://localhost:3000/cart/' + cartId).subscribe((result) => {
-  //     this.cartData.emit([]);
-  //   })
-  // }
+  deleteCartItems(cartId: string) {
+    return this.http
+      .delete('http://localhost:3000/cart/' + cartId)
+      .subscribe((result) => {
+        this.cartData.emit([]);
+      });
+  }
 
   // cancelOrder(orderId:number){
   //   return this.http.delete('http://localhost:3000/orders/'+orderId)
