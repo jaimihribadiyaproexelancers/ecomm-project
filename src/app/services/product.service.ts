@@ -62,4 +62,15 @@ export class ProductService {
   addToCart(cartData: Cart) {
     return this.http.post(`http://localhost:3000/cart`, cartData);
   }
+  getCartList(userId: number) {
+    return this.http
+      .get<Product[]>(`http://localhost:3000/cart?usersId=${userId}`, {
+        observe: 'response',
+      })
+      .subscribe((result) => {
+        if (result && result.body) {
+          this.cartData.emit(result.body);
+        }
+      });
+  }
 }
