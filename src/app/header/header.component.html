@@ -22,7 +22,7 @@
       <li><a href="#">{{userName | titlecase}}</a></li>
       <li><a routerLink="my-orders">My Orders</a></li>
       <li><a (click)="logout('user')">Logout</a></li>
-      <li><a routerLink="cart-page">Cart({{cartItems}})</a></li>
+      <li><a [routerLink]="cartItems>0?'cart-page':null">Cart({{cartItems}})</a></li>
     </ul>
     <ul *ngSwitchCase="'seller'">
       <li><a routerLink="seller-home">List</a></li>
