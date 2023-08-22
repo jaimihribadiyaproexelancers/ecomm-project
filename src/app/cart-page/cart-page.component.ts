@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./cart-page.component.css'],
 })
 export class CartPageComponent {
-  cartDate: Cart[] | undefined;
+  cartData: Cart[] | undefined;
   priceSummary: PriceSummary = {
     price: 0,
     discount: 0,
@@ -17,11 +17,23 @@ export class CartPageComponent {
     delivery: 0,
     total: 0,
   };
-
   constructor(private product: ProductService, private router: Router) {}
+
   ngOnInit(): void {
+    this.loadDetails();
+  }
+
+  removeToCart(cartId: string | undefined) {
+    cartId &&
+      this.cartData &&
+      this.product.removeToCart(cartId).subscribe((result) => {
+        this.loadDetails();
+      });
+  }
+
+  loadDetails() {
     this.product.currentCart().subscribe((result) => {
-      this.cartDate = result;
+      this.cartData = result;      
       let price = 0;
       result.forEach((item) => {
         if (item.quantity) {
@@ -33,6 +45,10 @@ export class CartPageComponent {
       this.priceSummary.tax = price / 10;
       this.priceSummary.delivery = 100;
       this.priceSummary.total = price + price / 10 + 100 - price / 10;
+
+      if (!this.cartData.length) {
+        this.router.navigate(['/']);
+      }
     });
   }
 

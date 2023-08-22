@@ -22,9 +22,7 @@ export class CheckoutComponent {
           price = price + +item.price * +item.quantity;
         }
       });
-      this.totalPrice = price + price / 10 + 100 - price / 10;
-
-      console.warn(this.totalPrice);
+      this.totalPrice = price + price / 10 + 100 - price / 10;      
     });
   }
   orderNow(data: { email: string; address: string; contact: string }) {
