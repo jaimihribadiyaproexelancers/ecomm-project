@@ -40,8 +40,7 @@ export class ProductDetailsComponent {
             let item = result.filter(
               (item: Product) => productId == item.productId
             );
-            if (item.length) {
-              console.warn(item);
+            if (item.length) {              
               this.cartData = item[0];
               this.removeCart = true;
             }
@@ -91,8 +90,7 @@ export class ProductDetailsComponent {
       let userId = user && JSON.parse(user).id;
       this.cartData &&
         this.product.removeToCart(this.cartData.id).subscribe((result) => {
-          if (result) {
-            console.warn(result);
+          if (result) {            
             this.product.getCartList(userId);
           }
         });
