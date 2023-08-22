@@ -31,6 +31,17 @@ export class ProductDetailsComponent {
             this.removeCart = false;
           }
         }
+        let user = localStorage.getItem('user');
+        if (user) {
+          let userId = user && JSON.parse(user).id;
+          this.product.getCartList(userId);
+          this.product.cartData.subscribe((result) => {
+            let item = result.filter((item: Product) => productId === item.productId);
+            if(item.length){
+              this.removeCart = true;
+            }
+          });
+        }
       });
   }
   handleQuantity(val: string) {
