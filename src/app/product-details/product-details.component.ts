@@ -18,6 +18,9 @@ export class ProductDetailsComponent {
     private product: ProductService
   ) {}
   ngOnInit(): void {
+    this.onLoad();
+  }
+  onLoad() {
     let productId = this.activeRoute.snapshot.paramMap.get('productId');
     productId &&
       this.product.getProduct(productId).subscribe((result) => {
@@ -40,7 +43,7 @@ export class ProductDetailsComponent {
             let item = result.filter(
               (item: Product) => productId == item.productId
             );
-            if (item.length) {              
+            if (item.length) {
               this.cartData = item[0];
               this.removeCart = true;
             }
@@ -90,7 +93,7 @@ export class ProductDetailsComponent {
       let userId = user && JSON.parse(user).id;
       this.cartData &&
         this.product.removeToCart(this.cartData.id).subscribe((result) => {
-          if (result) {            
+          if (result) {
             this.product.getCartList(userId);
           }
         });
