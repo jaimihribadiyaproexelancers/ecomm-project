@@ -20,6 +20,7 @@ import { UserAuthComponent } from './user-auth/user-auth.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { CartBtComponent } from './cart-bt/cart-bt.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
     CartPageComponent,
     CheckoutComponent,
     MyOrdersComponent,
+    CartBtComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, FontAwesomeModule, NgbModule],
   providers: [],
